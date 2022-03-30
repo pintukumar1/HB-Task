@@ -1,14 +1,18 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
+import Button from '../UI/Button';
 import MainHeader from './MainHeader';
 import Navlinks from './Navlinks';
 
 const Navigation = () => {
 
     return (
-        <MainHeader className="">
-            <h1>My Products</h1>
-            <nav className="center">
-               <Navlinks />
+        <MainHeader>
+            <Link to="/">
+                <Button>Products</Button>
+            </Link>
+            <nav>
+                <Navlinks />
             </nav>
         </MainHeader>
     )

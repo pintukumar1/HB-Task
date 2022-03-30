@@ -7,14 +7,16 @@ const Navlinks = () => {
     const auth = useContext(AuthContext);
     return (
         <ul className="nav-links">
-            <li>
-                <NavLink to="/"
-                    className={({ isActive }) =>
-                        isActive ? "active" : undefined
-                    }>
-                    ALL Products
-                </NavLink>
-            </li>
+            {auth.isLoggedIn && (
+                <li>
+                    <NavLink to="/"
+                        className={({ isActive }) =>
+                            isActive ? "active" : undefined
+                        }>
+                        ALL Products
+                    </NavLink>
+                </li>
+            )}
             {!auth.isLoggedIn && (
                 <li>
                     <NavLink to="/auth" className={({ isActive }) =>

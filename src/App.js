@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Auth from './pages/Auth';
 import ProductDetail from './components/Products/ProductDetail';

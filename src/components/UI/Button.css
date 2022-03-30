@@ -20,14 +20,3 @@
     background: #ff4382;
     border-color: #ff4382;
   }
-
-  .button:disabled,
-  .button:hover:disabled,
-  .button:active:disabled {
-  background: #ccc;
-  color: #979797;
-  border-color: #ccc;
-  cursor: not-allowed;
-}
-
-  
