@@ -9,7 +9,7 @@ const Navlinks = () => {
         <ul className="nav-links">
             {auth.isLoggedIn && (
                 <li>
-                    <NavLink to="/"
+                    <NavLink to="/products"
                         className={({ isActive }) =>
                             isActive ? "active" : undefined
                         }>
@@ -19,7 +19,7 @@ const Navlinks = () => {
             )}
             {!auth.isLoggedIn && (
                 <li>
-                    <NavLink to="/auth" className={({ isActive }) =>
+                    <NavLink to="/" className={({ isActive }) =>
                         isActive ? "active" : undefined
                     }>AUTHENTICATE</NavLink>
                 </li>

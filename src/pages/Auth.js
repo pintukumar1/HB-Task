@@ -23,9 +23,9 @@ const Auth = () => {
 
     const authFormSubmitHandler = (event) => {
         event.preventDefault()
-        console.log(enteredEmail,enteredPassword);
+        
         auth.login()
-        navigate("/");
+        navigate("/products");
     }
 
     return (

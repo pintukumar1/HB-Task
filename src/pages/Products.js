@@ -6,10 +6,9 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     const getProducts = async() =>
-        await axios.get("https://fakestoreapi.com/products")
+        await axios.get("https://fakestoreapi.com/products?sort=asc")
             .then(res => {
                 const data = res.data
-                console.log(data);
                 setProducts(data)
             })
 

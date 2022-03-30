@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../UI/Button'
-// import { Link } from 'react-router-dom'
 import Card from '../UI/Card'
 import './ProductItem.css'
 
@@ -15,7 +14,7 @@ const ProductItem = (props) => {
                     </div>
                     <div className="product-item__info">
                         <h2>Title: {props.title}</h2>
-                        <h3>Price: {props.price}</h3>
+                        <h3>Price: ${props.price}</h3>
                     </div>
                     <Link to={`/products/${props.id}`}>
                         <Button className="center">

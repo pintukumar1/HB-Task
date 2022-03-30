@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Auth from './pages/Auth';
-import ProductDetail from './components/Products/ProductDetail';
+import ProductDetail from './pages/ProductDetail';
 import Products from './pages/Products';
 import AuthContext from "./context/auth-context"
 import Navigation from './components/Navigation/Navigation';
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -27,9 +28,9 @@ function App() {
         <Navigation/>
         <main className="content">
           <Routes>
-            <Route path="/" element={<Products />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="/" element={<Auth />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:productid" element={<ProductDetail />} />
             <Route path="/cart" element={<h1>Cart</h1>} />
           </Routes>
         </main>

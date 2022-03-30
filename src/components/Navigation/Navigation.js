@@ -8,7 +8,7 @@ const Navigation = () => {
 
     return (
         <MainHeader>
-            <Link to="/">
+            <Link to="/products">
                 <Button>Products</Button>
             </Link>
             <nav>
