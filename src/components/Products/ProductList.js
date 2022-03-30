@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductItem from './ProductItem'
 import LoadingSpinner from '../UI/LoadingSpinner';
+import './ProductList.css'
 
 const ProductList = (props) => {
     if (props.items.length === 0) {

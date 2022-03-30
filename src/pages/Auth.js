@@ -6,25 +6,22 @@ import Input from '../components/UI/Input'
 import './Auth.css'
 
 const Auth = () => {
-    const navigate = useNavigate();
     const [enteredEmail, setEnteredEmail] = useState("")
     const [enteredPassword, setEnteredPassword] = useState("")
-
-    const emailChangeHandler = (e) => {
-        setEnteredEmail(e.target.value);
+    
+    const navigate = useNavigate();
+    
+    const emailChangeHandler = (event) => {
+        setEnteredEmail(event.target.value);
     }
 
-    const passwordChangeHandler = (e) => {
-        setEnteredPassword(e.target.value)
+    const passwordChangeHandler = (event) => {
+        setEnteredPassword(event.target.value)
     }
 
-    const authFormSubmitHandler = (e) => {
-        e.preventDefault();
-        const newUser = {
-            email: enteredEmail,
-            password: enteredPassword
-        }
-        console.log(newUser);
+    const authFormSubmitHandler = (event) => {
+        event.preventDefault()
+        console.log(enteredEmail,enteredPassword);
         navigate("/");
     }
 
