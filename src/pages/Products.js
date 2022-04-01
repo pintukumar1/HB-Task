@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import ProductList from '../components/Products/ProductList';
 import AppContext from '../context/app-context';
 import SearchBar from '../components/SearchBar/SearchBar';
@@ -7,10 +7,6 @@ import LoadingSpinner from '../components/UI/LoadingSpinner';
 
 const Products = () => {
     const appCtx = useContext(AppContext)
-
-    useEffect(() => {
-        appCtx.fetchAll();
-    }, [])
 
     const fuse  = new Fuse(appCtx.products, {
         keys: ["title", "description", "category"]
@@ -27,7 +23,7 @@ const Products = () => {
 
     return (
         <div>
-            <SearchBar />
+            <SearchBar placeholder="Search" />
             <ProductList items={productResults} />
         </div>
     )

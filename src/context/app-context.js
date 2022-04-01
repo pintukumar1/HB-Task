@@ -4,11 +4,14 @@ const AppContext = React.createContext({
     isLoggedIn: false,
     products: [],
     currentQuery: "",
-    login: () => {},
-    logout: () => {},
-    fetchAll: () => {},
-    searchItems : (query) => {},
-    addToCart: (id) => {}
+    login: () => { },
+    logout: () => { },
+    fetchAll: () => { },
+    searchItems: (query) => { },
+    addToCart: (id) => { },
+    addQty: (id) => { },
+    subtractQty: (id) => { },
+    removeFromCart: (id) => { }
 })
 
 

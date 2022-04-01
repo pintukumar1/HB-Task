@@ -28,10 +28,8 @@ const Auth = () => {
             email: enteredEmail,
             password: enteredPassword
         }
-        console.log(user)
-        
+        console.log(user);
         appCtx.login()
-
         navigate("/products");
     }
 

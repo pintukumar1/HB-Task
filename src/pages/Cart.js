@@ -22,7 +22,7 @@ function Cart() {
   }
 
   if (appCtx.products.length === 0) {
-    return <LoadingSpinner/>
+    return <LoadingSpinner />
   }
 
   return (
@@ -30,7 +30,7 @@ function Cart() {
       {appCtx.products.map((product) => {
         if (product.inCart === true) {
           return (
-            <Card className="cart-item__content" style={{textAlign: "center"}} key={product.id}>
+            <Card className="cart-item__content" style={{ textAlign: "center" }} key={product.id}>
               <Link to={`/products/${product.id}`}>
                 <div className="cart-item__image">
                   <img src={product.image} alt="product" />
@@ -40,13 +40,25 @@ function Cart() {
                   <span>{(product.qty * product.price).toFixed(2)}</span>
                 </div>
               </Link>
-              
               <div className="cart-nav">
+                {product.qty === 1 ? (
+                  <button
+                    onClick={() => {
+                      appCtx.removeFromCart(product.id);
+                    }}
+                  >
+                    x
+                  </button>
+                ) : (
+                  <button onClick={() => appCtx.subtractQty(product.id)}>
+                    -
+                  </button>
+                )}
                 <div className="cart-qty">
                   <span>{product.qty}</span>
                   <p>Qty</p>
                 </div>
-                <button onClick={() => appCtx.addToCart(product.id)}>+</button>
+                <button onClick={() => appCtx.addQty(product.id)}>+</button>
               </div>
             </Card>
           );
@@ -55,12 +67,14 @@ function Cart() {
       })}
       <div className="cart-total center">
         {getTotal() === 0 ? (
-          <span className="start-shopping">Start Shopping!</span>
+          <div className="center">
+            <span>Start Shopping!</span>
+          </div>
         ) : (
           `Total: ${getTotal().toFixed(2)}`
         )}
       </div>
-      </div>
+    </div>
   );
 }
 

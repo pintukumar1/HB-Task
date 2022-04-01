@@ -11,8 +11,7 @@ const ProductList = (props) => {
           </div>
         );
       }
-
-
+      
     return (
         <ul className="product-list">
             {props.items.map(item => (

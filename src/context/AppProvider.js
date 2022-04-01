@@ -1,7 +1,17 @@
 import React, { useReducer } from 'react'
 import reducer from './reducer';
 import AppContext from './app-context'
-import { ADD_TO_CART, AUTH_LOGIN, AUTH_LOGOUT, FETCH_ALL_PRODUCTS, UPDATE_QUERY } from './actions'
+import { 
+    ADD_QTY, 
+    ADD_TO_CART, 
+    AUTH_LOGIN, 
+    AUTH_LOGOUT, 
+    FETCH_ALL_PRODUCTS, 
+    REMOVE_FROM_CART, 
+    SUBTRACT_QTY, 
+    UPDATE_QUERY 
+} from './actions'
+
 import axios from 'axios'
 
 const defaultAppState = {
@@ -39,6 +49,18 @@ const AppProvider = (props) => {
         dispatchAppAction({ type: ADD_TO_CART, payload: id })
     }
 
+    const addQty = (id) => {
+        dispatchAppAction({type:ADD_QTY, payload:id})
+    }
+
+    const subtractQty = (id) => {
+        dispatchAppAction({type: SUBTRACT_QTY, payload: id})
+    }
+
+    const removeFromCart = (id) => {
+        dispatchAppAction({type: REMOVE_FROM_CART, payload: id})
+    }
+
     const appContext = {
         isLoggedIn: appState.isLoggedIn,
         products: appState.products,
@@ -47,7 +69,10 @@ const AppProvider = (props) => {
         logout: logoutHandler,
         fetchAll: fetchAllProducts,
         searchItems: updateQuery,
-        addToCart: addToCart
+        addToCart: addToCart,
+        addQty: addQty,
+        subtractQty: subtractQty,
+        removeFromCart: removeFromCart
     };
 
     return (
