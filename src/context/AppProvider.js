@@ -1,15 +1,15 @@
 import React, { useReducer } from 'react'
 import reducer from './reducer';
 import AppContext from './app-context'
-import { 
-    ADD_QTY, 
-    ADD_TO_CART, 
-    AUTH_LOGIN, 
-    AUTH_LOGOUT, 
-    FETCH_ALL_PRODUCTS, 
-    REMOVE_FROM_CART, 
-    SUBTRACT_QTY, 
-    UPDATE_QUERY 
+import {
+    ADD_QTY,
+    ADD_TO_CART,
+    AUTH_LOGIN,
+    AUTH_LOGOUT,
+    FETCH_ALL_PRODUCTS,
+    REMOVE_FROM_CART,
+    SUBTRACT_QTY,
+    UPDATE_QUERY,
 } from './actions'
 
 import axios from 'axios'
@@ -17,7 +17,7 @@ import axios from 'axios'
 const defaultAppState = {
     isLoggedIn: false,
     products: [],
-    currentQuery: ""
+    currentQuery: "",
 }
 
 const AppProvider = (props) => {
@@ -35,7 +35,7 @@ const AppProvider = (props) => {
         axios.get("https://fakestoreapi.com/products")
             .then(response => {
                 let newArray = response.data.map(product => {
-                    return {...product, qty: 0, inCart: false }
+                    return { ...product, qty: 0, inCart: false }
                 })
                 dispatchAppAction({ type: FETCH_ALL_PRODUCTS, payload: newArray })
             })
@@ -50,15 +50,15 @@ const AppProvider = (props) => {
     }
 
     const addQty = (id) => {
-        dispatchAppAction({type:ADD_QTY, payload:id})
+        dispatchAppAction({ type: ADD_QTY, payload: id })
     }
 
     const subtractQty = (id) => {
-        dispatchAppAction({type: SUBTRACT_QTY, payload: id})
+        dispatchAppAction({ type: SUBTRACT_QTY, payload: id })
     }
 
     const removeFromCart = (id) => {
-        dispatchAppAction({type: REMOVE_FROM_CART, payload: id})
+        dispatchAppAction({ type: REMOVE_FROM_CART, payload: id })
     }
 
     const appContext = {

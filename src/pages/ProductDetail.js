@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../components/UI/Card'
 import LoadingSpinner from '../components/UI/LoadingSpinner'
@@ -15,21 +15,19 @@ const ProductDetail = () => {
 
     const prodId = useParams().productid;
 
-    const getProductDetail = useCallback(() => {
+    const getProductDetail = () => {
         setLoading(true)
         axios.get(`https://fakestoreapi.com/products/${prodId}`)
             .then(res => {
                 setProduct(res.data)
                 setRating(res.data.rating)
                 setLoading(false)
-            }).catch(err => {
-                console.log(err)
             })
-    }, [prodId])
+    }
 
     useEffect(() => {
         getProductDetail();
-    },[getProductDetail])
+    }, [])
 
     return (
         <React.Fragment>
@@ -51,7 +49,7 @@ const ProductDetail = () => {
                     <p>{product.description}</p>
                 </div>
                 <div>
-                <Button
+                    <Button
                         onClick={() => {
                             appCtx.addToCart(product.id)
                         }} >
@@ -60,8 +58,6 @@ const ProductDetail = () => {
                 </div>
             </Card>}
         </React.Fragment>
-
-
     )
 }
 
