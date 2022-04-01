@@ -5,12 +5,10 @@ import ProductDetail from './pages/ProductDetail';
 import Products from './pages/Products';
 import Navigation from './components/Navigation/Navigation';
 import Cart from './pages/Cart';
-import AppProvider from './context/AppProvider'
 
 function App() {
 
   return (
-    <AppProvider >
       <Router >
         <Navigation />
         <main className="content">
@@ -22,7 +20,6 @@ function App() {
           </Routes>
         </main>
       </Router>
-    </AppProvider>
   );
 }
 

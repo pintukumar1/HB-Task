@@ -1,9 +1,9 @@
-import { createContext } from 'react'
+import React from "react"
 
-const AppContext = createContext({
+const AppContext = React.createContext({
     isLoggedIn: false,
-    login: () => { },
-    logout: () => { }
+    products: []
 })
+
 
 export default AppContext

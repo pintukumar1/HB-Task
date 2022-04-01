@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import React, { useContext, useEffect } from 'react'
 import ProductList from '../components/Products/ProductList';
+import AppContext from '../context/app-context';
 
 const Products = () => {
-    const [products, setProducts] = useState([]);
-
-    const getProducts = async() =>
-        await axios.get("https://fakestoreapi.com/products?sort=asc")
-            .then(res => {
-                const data = res.data
-                setProducts(data)
-            })
+    const appCtx = useContext(AppContext)
 
     useEffect(() => {
-        getProducts();
-    }, [])
+        appCtx.fetchAll();
+    }, [appCtx])
 
-    return  <ProductList items={products} />    
+    return  <ProductList items={appCtx.products} />    
 }
 
 export default Products

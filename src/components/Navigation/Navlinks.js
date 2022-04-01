@@ -4,7 +4,7 @@ import AppContext from '../../context/app-context';
 import "./Navlinks.css"
 
 const Navlinks = () => {
-    const appCtx = useContext(AppContext);
+    const appCtx = useContext(AppContext)
 
     return (
         <ul className="nav-links">
