@@ -20,10 +20,10 @@ const Products = () => {
     if(appCtx.products.length === 0) {
         return <LoadingSpinner />
     }
-
+ 
     return (
         <div>
-            <SearchBar placeholder="Search" />
+            <SearchBar />
             <ProductList items={productResults} />
         </div>
     )
