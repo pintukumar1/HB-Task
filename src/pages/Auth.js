@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import Button from '../components/UI/Button'
 import Card from '../components/UI/Card'
 import Input from '../components/UI/Input'
-import AuthContext from '../context/auth-context'
+import AppContext from '../context/app-context'
 import './Auth.css'
 
 const Auth = () => {
-    const auth = useContext(AuthContext)
+    const appCtx = useContext(AppContext)
     const [enteredEmail, setEnteredEmail] = useState("")
     const [enteredPassword, setEnteredPassword] = useState("")
-    
+
     const navigate = useNavigate();
 
     const emailChangeHandler = event => {
@@ -22,9 +22,16 @@ const Auth = () => {
     }
 
     const authFormSubmitHandler = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+
+        const user = {
+            email: enteredEmail,
+            password: enteredPassword
+        }
+        console.log(user)
         
-        auth.login()
+        appCtx.login()
+
         navigate("/products");
     }
 

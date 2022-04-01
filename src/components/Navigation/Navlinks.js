@@ -1,32 +1,44 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import AuthContext from '../../context/auth-context';
+import AppContext from '../../context/app-context';
 import "./Navlinks.css"
 
 const Navlinks = () => {
-    const auth = useContext(AuthContext);
+    const appCtx = useContext(AppContext);
+
     return (
         <ul className="nav-links">
-            {auth.isLoggedIn && (
+            {appCtx.isLoggedIn && (
                 <li>
                     <NavLink to="/products"
                         className={({ isActive }) =>
                             isActive ? "active" : undefined
                         }>
-                        ALL Products
+                        ALL PRODUCTS
                     </NavLink>
                 </li>
             )}
-            {!auth.isLoggedIn && (
+            {appCtx.isLoggedIn && (
+                <li>
+                    <NavLink to="/cart" className={({ isActive }) =>
+                        isActive ? "active" : undefined
+                    }> CART
+                    </NavLink>
+                </li>
+            )}
+            {!appCtx.isLoggedIn && (
                 <li>
                     <NavLink to="/" className={({ isActive }) =>
                         isActive ? "active" : undefined
                     }>AUTHENTICATE</NavLink>
                 </li>
             )}
-            {auth.isLoggedIn && (
+            {appCtx.isLoggedIn && (
                 <li>
-                    <button onClick={auth.logout}>LOGOUT</button>
+                    <button
+                        onClick={appCtx.logout}>
+                        LOGOUT
+                    </button>
                 </li>
             )}
         </ul>

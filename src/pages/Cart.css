@@ -1,0 +1,58 @@
+
+.cart-container .cart-total {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .cart-container .cart {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 30px;
+    width: 55%;
+  }
+  .cart-container .cart .cart-link {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+  }
+  .cart-container .cart .cart-desc {
+    margin: 15px;
+    text-align: left;
+  }
+  .cart-container .cart .cart-desc p {
+    margin: 0;
+  }
+  .cart-container .cart .cart-desc span {
+    font-size: 2rem;
+  }
+  .cart-container .cart .cart-nav {
+    display: flex;
+    align-items: flex-start;
+  }
+  .cart-container .cart .cart-nav .cart-qty {
+    padding-top: 7px;
+  }
+  .cart-container .cart .cart-nav span {
+    font-size: 2em;
+  }
+  .cart-container .cart .cart-nav p {
+    margin: 0;
+  }
+  @media screen and (max-width: 620px) {
+    .cart-container .cart {
+      grid-template-columns: 1fr;
+    }
+    .cart-container .cart .cart-link {
+      grid-template-columns: 1fr;
+    }
+    .cart-container .cart .cart-nav {
+      justify-content: center;
+    }
+  }
+  .cart-container .cart button {
+    font-family: "Arimo", sans-serif;
+    font-weight: 900;
+    margin: 11px;
+    border: solid black 1px;
+  }
