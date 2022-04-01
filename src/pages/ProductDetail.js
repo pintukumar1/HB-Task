@@ -26,7 +26,7 @@ const ProductDetail = () => {
 
     useEffect(() => {
         getProductDetail()
-    }, [getProductDetail])
+    }, [])
 
     return (
         <React.Fragment>
@@ -43,6 +43,7 @@ const ProductDetail = () => {
                     <h4>Title: {product.title}</h4>
                     <h4>Price: ${product.price}</h4>
                     <h4>Rating rate: {rating.rate}</h4>
+                    <h5>Category: {product.category}</h5>
                     <h5>Rating count: {rating.count}</h5>
                     <p>{product.description}</p>
                 </div>

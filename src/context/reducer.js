@@ -1,4 +1,4 @@
-import { AUTH_LOGIN, AUTH_LOGOUT, FETCH_ALL_PRODUCTS } from './actions'
+import { AUTH_LOGIN, AUTH_LOGOUT, FETCH_ALL_PRODUCTS, UPDATE_QUERY, ADD_TO_CART } from './actions'
 
 const reducer = (state, action) => {
     if (action.type === AUTH_LOGIN) {
@@ -15,10 +15,31 @@ const reducer = (state, action) => {
         }
     }
 
-    if (action.type = FETCH_ALL_PRODUCTS) {
+    if (action.type === FETCH_ALL_PRODUCTS) {
         return {
             ...state,
             products: action.payload
+        }
+    }
+
+    if (action.type === UPDATE_QUERY) {
+        return {
+            ...state,
+            currentQuery: action.payload
+        }
+    }
+
+    if(action.type === ADD_TO_CART) {
+        let productsCopy = [...state.products]
+        productsCopy.forEach((product) => {
+            if(product.id === action.payload){
+                product.qty = product.qty + 1;
+                product.inCart = true
+            }
+        })
+        return {
+            ...state,
+            products: productsCopy
         }
     }
 
